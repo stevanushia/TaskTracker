@@ -34,3 +34,6 @@ This project was built iteratively with the assistance of an AI Coding Partner (
 6. **Automated Testing & Bug Fixing:**
    * *Prompt Context:* "Minimal 1 Backend test (PHPUnit) and 1 Frontend test (Vitest/Vue Test Utils)."
    * *AI Action:* Guided the activation of the SQLite PHP extension in Laragon. Wrote `AuthTest.php` to verify API endpoint responses, and built a unit test (`Button.spec.ts`) for the reusable frontend button component testing dynamic props and slots.
+
+Gemini Chat History Link
+https://gemini.google.com/share/99f861d9b15f
