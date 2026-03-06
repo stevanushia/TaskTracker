@@ -54,9 +54,9 @@ Before you begin, ensure you have the following installed:
    DB_CONNECTION=pgsql
    DB_HOST=127.0.0.1
    DB_PORT=5432
-   DB_DATABASE=your_db_name
+   DB_DATABASE=db_tasktracker
    DB_USERNAME=postgres
-   DB_PASSWORD=your_password
+   DB_PASSWORD=
    ```
 
 5. **Run Migrations and Seeders:**
