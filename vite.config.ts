@@ -1,3 +1,4 @@
+/// <reference types="vitest" />
 import { defineConfig } from 'vite';
 import laravel from 'laravel-vite-plugin';
 import vue from '@vitejs/plugin-vue';
@@ -18,4 +19,9 @@ export default defineConfig({
             '@': path.resolve(__dirname, './resources/js'),
         },
     },
+    // 👇 Add this test configuration 👇
+    test: {
+        environment: 'jsdom',
+        globals: true,
+    }
 });
