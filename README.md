@@ -57,3 +57,11 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+
+
+## STEP
+1. composer require laravel/sanctum
+2. npm install vue vue-router pinia axios
+3. npm install -D typescript @vitejs/plugin-vue vitest @vue/test-utils jsdom vue-tsc
+
+
