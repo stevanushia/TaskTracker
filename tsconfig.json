@@ -20,5 +20,9 @@
     }
   },
   // 👇 Also make sure TypeScript is looking in the right folder for your files
-  "include": ["resources/js/**/*.ts", "resources/js/**/*.d.ts", "resources/js/**/*.vue"]
+  "include": [
+    "resources/js/**/*.ts",
+    "resources/js/**/*.d.ts",
+    "resources/js/**/*.vue"
+  ]
 }

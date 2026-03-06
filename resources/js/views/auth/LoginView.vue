@@ -8,7 +8,7 @@
 
       <form @submit.prevent="handleLogin">
         <div class="mb-4">
-          <label class="block text-sm font-medium text-gray-700 mb-1">Email</label>
+          <Label>Email</Label>
           <input
             v-model="form.email"
             type="email"
@@ -20,7 +20,7 @@
         </div>
 
         <div class="mb-6">
-          <label class="block text-sm font-medium text-gray-700 mb-1">Password</label>
+          <Label>Password</Label>
           <input
             v-model="form.password"
             type="password"
@@ -31,13 +31,7 @@
           <span v-if="errors.password" class="text-xs text-red-500 mt-1 block">{{ errors.password[0] }}</span>
         </div>
 
-        <button
-          type="submit"
-          :disabled="isLoading"
-          class="w-full bg-blue-500 text-white font-medium py-2 px-4 rounded-md hover:bg-blue-600 transition disabled:opacity-50"
-        >
-          {{ isLoading ? 'Loading...' : 'Masuk' }}
-        </button>
+        <Button type="submit" :isLoading="isLoading">Masuk</Button>
       </form>
     </div>
   </div>
@@ -47,7 +41,10 @@
 import { ref } from 'vue';
 import { useRouter } from 'vue-router';
 import { useAuthStore } from '@/stores/authStore';
+import Label from '@/components/Label.vue';
+import Button from '@/components/Button.vue';
 
+// ... (logic remains exactly the same as the previous response)
 const form = ref({ email: '', password: '' });
 const errors = ref<Record<string, string[]>>({});
 const isLoading = ref(false);
@@ -57,14 +54,13 @@ const authStore = useAuthStore();
 
 const handleLogin = async () => {
     isLoading.value = true;
-    errors.value = {}; // Reset errors
+    errors.value = {};
 
     try {
         await authStore.login(form.value);
-        router.push({ name: 'dashboard' }); // Redirect after success
+        router.push({ name: 'dashboard' });
     } catch (error: any) {
         if (error.response && error.response.status === 422) {
-            // Map Laravel's validation errors directly to the form fields
             errors.value = error.response.data.errors;
         } else {
             alert('Terjadi kesalahan pada server. Silakan coba lagi.');
