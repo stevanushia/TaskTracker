@@ -4,9 +4,38 @@ namespace App\Http\Controllers;
 
 use App\Models\Task;
 use Illuminate\Http\Request;
+use App\Models\Project;
+use App\Models\Category;
 
 class TaskController extends Controller
 {
+    public function index(Request $request)
+    {
+        // Fetch tasks with their related project and category names
+        $query = Task::with(['project', 'category'])->orderBy('created_at', 'desc');
+
+        // Apply Search Filter
+        if ($request->filled('search')) {
+            $query->where('title', 'ilike', '%' . $request->search . '%');
+        }
+
+        // Apply Category Filter
+        if ($request->filled('category_id') && $request->category_id !== 'all') {
+            $query->where('category_id', $request->category_id);
+        }
+
+        // Apply Project Filter
+        if ($request->filled('project_id') && $request->project_id !== 'all') {
+            $query->where('project_id', $request->project_id);
+        }
+
+        return response()->json([
+            'tasks' => $query->get(),
+            'categories' => Category::all(),
+            'projects' => Project::where('status', 'active')->get() // Only show active projects for the dropdowns
+        ]);
+    }
+
     public function store(Request $request)
     {
         $validated = $request->validate([

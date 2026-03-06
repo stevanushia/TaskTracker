@@ -21,7 +21,7 @@ Route::middleware('auth:sanctum')->group(function () {
 
     Route::apiResource('projects', ProjectController::class)->except(['destroy']);
 
-    Route::apiResource('tasks', TaskController::class)->except(['index', 'show']);
+    Route::apiResource('tasks', TaskController::class)->except(['show']);
 });
 
 Route::get('/dashboard', [DashboardController::class, 'index']);
