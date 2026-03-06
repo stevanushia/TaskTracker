@@ -18,6 +18,16 @@ const routes: Array<RouteRecordRaw> = [
                 path: '',
                 name: 'dashboard',
                 component: () => import('@/views/DashboardView.vue')
+            },
+            {
+                path: 'projects',
+                name: 'projects',
+                component: () => import('@/views/ProjectView.vue')
+            },
+            {
+                path: 'projects/:id',
+                name: 'project-detail',
+                component: () => import('@/views/ProjectDetailView.vue')
             }
         ]
     }

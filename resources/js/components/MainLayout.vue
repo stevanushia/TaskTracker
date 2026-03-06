@@ -6,10 +6,10 @@
           <h1 class="text-xl font-bold">Task<span class="text-blue-400">Tracker</span></h1>
         </div>
         <nav class="mt-2 space-y-1 px-3">
-          <router-link to="/" class="flex items-center px-3 py-2.5 bg-gray-800/50 rounded-lg text-sm font-medium">
+          <router-link :to="{ name: 'dashboard' }" class="flex items-center px-3 py-2.5 rounded-lg text-sm font-medium transition" active-class="bg-gray-800/50 text-white" exact-active-class="bg-gray-800/50 text-white">
             <span class="mr-3">📊</span> Dashboard
           </router-link>
-          <router-link to="/" class="flex items-center px-3 py-2.5 hover:bg-gray-800 rounded-lg text-sm font-medium text-gray-300 transition">
+          <router-link :to="{ name: 'projects' }" class="flex items-center px-3 py-2.5 rounded-lg text-sm font-medium text-gray-400 hover:text-white hover:bg-gray-800 transition" active-class="bg-gray-800/50 text-white">
             <span class="mr-3">📁</span> Project
           </router-link>
           <router-link to="/" class="flex items-center px-3 py-2.5 hover:bg-gray-800 rounded-lg text-sm font-medium text-gray-300 transition">
